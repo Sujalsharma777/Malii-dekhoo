@@ -9,23 +9,23 @@ const Navigation = () => {
   return (
   <>
      
-    <div className="dock">
+    <div className="dock ">
    
   <button>
-     <NavLink to="#">
-<IoIosHome className='text-3xl hover:text-blue-500 text-black dock-label'  />
+     <NavLink to="/">
+<IoIosHome className='text-3xl hover:text-blue-500 dock-label'  />
         </NavLink  >
   </button>
   
   <button className="">
-    <NavLink to="/message">
-<MdMessage className='text-3xl hover:text-blue-500 text-black dock-label ' />
+    <NavLink to="/Status-Appointment">
+<MdMessage className='text-3xl hover:text-blue-500  dock-label ' />
         </NavLink>
   </button>
   
   <button>
   <NavLink to="/Profile">
-<CgProfile className='text-3xl hover:text-blue-500 text-black dock-label' />
+<CgProfile className='text-3xl hover:text-blue-500 dock-label' />
         </NavLink>
   </button>
 </div>

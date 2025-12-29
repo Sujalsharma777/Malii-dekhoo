@@ -15,8 +15,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  
   Booking: [{ type: mongoose.Schema.Types.ObjectId, ref: "Booking" }],
-});
+},  
+{ timestamps: { createdAt: "created_at" } });
 
 const Auth = mongoose.models.Auth || mongoose.model("Auth", UserSchema);
 module.exports = Auth;

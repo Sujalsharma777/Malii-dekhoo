@@ -1,0 +1,23 @@
+{
+  "name": "malii-dekho",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Sujalsharma777/Malii-dekhoo#readme",
+  "bugs": {
+    "url": "https://github.com/Sujalsharma777/Malii-dekhoo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sujalsharma777/Malii-dekhoo.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+     "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "build": "npm install && npm run install-client && npm run build-client",
+    "start": "node server/index.js"
+  }
+}

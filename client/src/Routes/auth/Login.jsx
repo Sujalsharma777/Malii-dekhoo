@@ -29,6 +29,7 @@ const Login = () => {
         Navigate("/");
 
         dispatch(setAuth(Login.data.LoginUser));
+        localStorage.setItem("token", Login.data.token)
 
         toast.alert(message);
       } else if (error) {

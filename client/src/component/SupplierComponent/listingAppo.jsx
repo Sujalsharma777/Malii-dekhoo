@@ -13,7 +13,7 @@ const listingAppo = () => {
 const items = useSelector((state) => state.items.list);
   const loading = useSelector((state) => state.items.loading);
   const error = useSelector((state) => state.items.error);
-  
+
 
   useEffect(() => {
 
@@ -27,7 +27,6 @@ const items = useSelector((state) => state.items.list);
   } 
 
   const getdata = (DateData)=>{
-  
     const targetdate = new Date(DateData)
     const now  = new Date()
     const targetdataUTC = Date.UTC(targetdate.getFullYear(), targetdate.getMonth(), targetdate.getDate());

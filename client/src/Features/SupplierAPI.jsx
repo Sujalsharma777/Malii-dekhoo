@@ -16,3 +16,11 @@ export const DeleteItems = createAsyncThunk(
         return id
     }
 )
+export const GetBookedItems = createAsyncThunk(
+   "/BookedItems",
+    async()=>{
+      const data = await api.get("/supplier/deleteAppointment/BookedAppointment")
+    
+        return data.data.data
+    }
+)

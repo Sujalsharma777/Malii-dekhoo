@@ -21,6 +21,8 @@ app.use(cors({
   origin: "https://malii-dekhoo.vercel.app/",
   credentials: true
 }));
+
+
 // use cookies
 app.use(cookieParser());
  

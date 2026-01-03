@@ -6,7 +6,7 @@
   "author": "",
   "type": "commonjs",
   "main": "index.js",
-  "proxy": "https://malidekho.onrender.com/",
+  "proxy": "https://malii-dekhoo.vercel.app/",
   "scripts": {
     "server": "nodemon index.js"
   },

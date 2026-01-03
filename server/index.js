@@ -18,7 +18,7 @@ const port = process.env.PORT || 5000
 // use cors 
 
 app.use(cors({ 
-  origin: "https://malidekho.onrender.com/",
+  origin: "https://malii-dekhoo.vercel.app/",
   credentials: true
 }));
 // use cookies

@@ -30,8 +30,8 @@ app.use(cookieParser());
 
 
 app.get('/home', (req, res) => {
-  res.send('Hello world');
-}
+  window
+})
 
 app.use("/",AuthRouter)
  

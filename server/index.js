@@ -30,7 +30,8 @@ app.use(cookieParser());
 
 
 app.get('/home', (req, res) => {
-  window
+  const data = res.status(200)
+  console.log(data)
 })
 
 app.use("/",AuthRouter)

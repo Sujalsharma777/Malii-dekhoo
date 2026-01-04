@@ -29,7 +29,9 @@ app.use(cookieParser());
 
 
 
-
+app.get('/home', (req, res) => {
+  res.send('Hello world');
+}
 
 app.use("/",AuthRouter)
  

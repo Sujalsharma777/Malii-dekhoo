@@ -23,9 +23,14 @@ const Appointment = ({ name }) => {
     name.trim() === "" ? DefaultName : name.trim().toLowerCase();
 
   // filter data like search and default city
-  const flitterData = items.filter((item) => {
+  const flitterData =useMemo(() => {
+
+    return items.filter((item) =>
+    item.city.toLowerCase().includes(nameToFilter)
+  }, [items,nameToFilter])
+   /* items.filter((item) => {
     return item.city.toLowerCase().includes(nameToFilter);
-  });
+  }); */
 
   // booking system
   const [Appointment, SetAppointment] = useState([]);
@@ -109,7 +114,7 @@ const Appointment = ({ name }) => {
               </div>
             </div>
           ))}
-        </div>
+        </div>  
       ) : (
         <div role="alert" className=" alert alert-error alert-soft">
           <span>Not Found</span>

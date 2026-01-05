@@ -29,6 +29,20 @@ const Appointment = ({ name }) => {
     item.city.toLowerCase().includes(nameToFilter)
   )
   },[items,nameToFilter])
+
+
+  const getdata = (DateData)=>{
+    const targetdate = new Date(DateData)
+    const now  = new Date()
+    const targetdataUTC = Date.UTC(targetdate.getFullYear(), targetdate.getMonth(), targetdate.getDate());
+    const nowUTC = Date.UTC(now.getFullYear() , now.getMonth(), now.getDate())
+    const timeDifference = targetdataUTC - nowUTC;
+        const millisecondsPerDay = 1000 * 60 * 60 * 24;
+ const daysLeft = Math.ceil(timeDifference / millisecondsPerDay)
+
+    return daysLeft;
+   
+  }
    /* items.filter((item) => {
     return item.city.toLowerCase().includes(nameToFilter);
   }); */
@@ -98,10 +112,11 @@ const Appointment = ({ name }) => {
                     <MdLocationCity />
                     {data.city} {data.district} {data.state}
                   </p>
-                  <p className="flex items-center gap-1 sm:tex-lg text-md">
-                    {" "}
-                    <CgTimelapse /> {Date(data.end_time)}
-                  </p>
+               <p className="flex items-center gap-1 tex-lg" datedata={data.end_time} id="countdown-display">
+                                 {" "}
+                                 <CgTime className="sm:text-2xl text-lg" /> <span className="font-bold text-error"> Day Left: {getdata(data.end_time)}         </span>
+                                 
+                                 </p>
 
                   <div className="card-actions justify-center">
                     <button

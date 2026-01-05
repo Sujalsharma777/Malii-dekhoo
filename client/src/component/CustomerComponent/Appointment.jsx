@@ -121,7 +121,7 @@ const Appointment = ({ name }) => {
         </div>  
       ) : (
         <div role="alert" className=" alert alert-error alert-soft">
-          <span>Not Found</span>
+          <span>No Appointment available in your location </span>
         </div>
       )}
     </div>

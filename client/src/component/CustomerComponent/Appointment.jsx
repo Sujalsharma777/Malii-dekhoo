@@ -119,4 +119,4 @@ const Appointment = ({ name }) => {
   );
 };
 
-export default memo.Appointment;
+export default memo(Appointment);

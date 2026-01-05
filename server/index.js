@@ -15,10 +15,19 @@ app.use(express.urlencoded({ extended: true }))
 // use port
 const port = process.env.PORT || 5000
 
-// use cors 
-
-app.use(cors({ 
-  origin: "https://malii-dekhoo.vercel.app/",
+// use cors origin: "https://malii-dekhoo.vercel.app/",
+const allowedOrigins = [
+  "https://malii-dekhoo.vercel.app",
+  "http://localhost:5173"
+];
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed"));
+    }
+  },
   credentials: true
 }));
 

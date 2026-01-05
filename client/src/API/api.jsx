@@ -3,7 +3,11 @@ const api = axios.create(
     {
             baseURL: 'https://malii-dekhoo.onrender.com',
             withCredentials: true,
+              headers: {
+    "Content-Type": "application/json"
+  }
     }
+    
 )
 
 export default api

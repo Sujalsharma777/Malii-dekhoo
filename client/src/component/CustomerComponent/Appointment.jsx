@@ -6,7 +6,7 @@ import {
   bookstatus,
 } from "../../Features/CustomerAPI";
 import { MdLocationCity } from "react-icons/md";
-import { CgTimelapse } from "react-icons/cg";
+import { CgTime, CgTimelapse } from "react-icons/cg";
 import api from "../../API/api";
 const Appointment = ({ name }) => {
   let dispatch = useDispatch();

@@ -27,7 +27,8 @@ const Appointment = ({ name }) => {
 
     return items.filter((item) =>
     item.city.toLowerCase().includes(nameToFilter)
-  }, [items,nameToFilter])
+  )
+  },[items,nameToFilter])
    /* items.filter((item) => {
     return item.city.toLowerCase().includes(nameToFilter);
   }); */
@@ -37,6 +38,9 @@ const Appointment = ({ name }) => {
   const bookings = useSelector((state) => state.Appointment.BookList);
   useEffect(() => {
     dispatch(fetchApp());
+
+  },[dispatch] )
+  useEffect(()=>{
     // use for getting data empty array so problems face re-rendering  using if solve re-rendering 
     if (bookings.length === 0) {
       dispatch(bookstatus(userid));

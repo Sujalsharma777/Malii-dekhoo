@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , memo} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchApp,
@@ -119,4 +119,4 @@ const Appointment = ({ name }) => {
   );
 };
 
-export default Appointment;
+export default memo.Appointment;

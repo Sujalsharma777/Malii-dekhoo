@@ -1,8 +1,3 @@
-Below is a clean, professional **GitHub-ready README.md** for your MERN project. It’s written the way interviewers, collaborators, and open-source readers expect it—clear, structured, and no fluff.
-
-You can copy-paste this directly into a `README.md` file at the root of your repository.
-
----
 
 # 🌱 Mali Dekho
 

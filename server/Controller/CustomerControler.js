@@ -33,14 +33,15 @@ const BookAppointment = async (req, res) => {
 const AppointmentStatus = async (req, res) => {
   const UserId = req.params.id;
 
-  try {
+  try { 
     const data = await Booking.find({ User_id: UserId });
-
+    
     return res.status(200).json({ data });
   } catch (error) {
     return res.status(500).json({ message: "Something is wrong ", error });
   }
 };
+
 
 module.exports = {
   fetchApi,

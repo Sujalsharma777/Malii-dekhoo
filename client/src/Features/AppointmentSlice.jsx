@@ -41,6 +41,10 @@ const AppointmentSlice = createSlice({
          state.loading = false;
         state.BookList = action.payload;
       })
+      .addCase(bookstatus.rejected,(state,action)=>{
+        state.loading = false;
+        state.error = action.error.message
+      })
      
 
   },

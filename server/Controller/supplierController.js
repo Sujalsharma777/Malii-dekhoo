@@ -113,6 +113,7 @@ const GetBookedAppointment = async (req, res) => {
     const appointments = await Appointment.find({ supplier_id: Newuser })
     const appointmentData = appointments.map((a)=>a._id).toString()
     const booked = await Booking.find({Appointment_id:{$in : appointmentData}}).populate("Appointment_id").populate("User_id")
+    console.log(booked)
     return res.status(200).json({
       success: true,
       count: booked.length,

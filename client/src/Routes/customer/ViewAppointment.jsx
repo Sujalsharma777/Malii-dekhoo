@@ -1,8 +1,12 @@
 import React from 'react'
-
+import BookedAppointment from '../../component/CustomerComponent/BookedAppointment'
 const ViewAppointment = () => {
   return (
-    <div>ViewAppointment</div>
+   <>
+   <div className='m-10'>
+   <BookedAppointment/>
+   </div>
+   </>
   )
 }
 

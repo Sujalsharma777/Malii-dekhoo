@@ -1,70 +1,46 @@
-import React, { useEffect, useState , memo, useMemo} from "react";
+import React, { useEffect, useState, memo, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchApp,
-  bookAppointment,
-  bookstatus,
-} from "../../Features/CustomerAPI";
+import { bookstatus } from "../../Features/CustomerAPI";
 import { MdLocationCity } from "react-icons/md";
 import { CgTime, CgTimelapse } from "react-icons/cg";
 import api from "../../API/api";
-const Appointment = ({ name }) => {
+const BookedAppointment = () => {
   let dispatch = useDispatch();
-  // fetch apointments
-  const items = useSelector((state) => state.Appointment.list);
-  const loading = useSelector((state) => state.Appointment.loading);
-  const error = useSelector((state) => state.Appointment.error);
-
+ 
+   
   const userdata = localStorage.getItem("userInfo");
   const userInfo = JSON.parse(userdata);
   const userid = userInfo.id;
-  const DefaultName = userInfo.city;
-  const nameToFilter =
-    name.trim() === "" ? DefaultName : name.trim().toLowerCase();
-
-  // filter data like search and default city
-  const flitterData =useMemo(() => {
-
-    return items.filter((item) =>
-    item.city.toLowerCase().includes(nameToFilter)
-  )
-  },[items,nameToFilter])
 
 
-  const getdata = (DateData)=>{
-    const targetdate = new Date(DateData)
-    const now  = new Date()
-    const targetdataUTC = Date.UTC(targetdate.getFullYear(), targetdate.getMonth(), targetdate.getDate());
-    const nowUTC = Date.UTC(now.getFullYear() , now.getMonth(), now.getDate())
+  const getdata = (DateData) => {
+    const targetdate = new Date(DateData);
+    const now = new Date();
+    const targetdataUTC = Date.UTC(
+      targetdate.getFullYear(),
+      targetdate.getMonth(),
+      targetdate.getDate()
+    );
+    const nowUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
     const timeDifference = targetdataUTC - nowUTC;
-        const millisecondsPerDay = 1000 * 60 * 60 * 24;
- const daysLeft = Math.ceil(timeDifference / millisecondsPerDay)
+    const millisecondsPerDay = 1000 * 60 * 60 * 24;
+    const daysLeft = Math.ceil(timeDifference / millisecondsPerDay);
 
     return daysLeft;
-   
-  }
-   /* items.filter((item) => {
-    return item.city.toLowerCase().includes(nameToFilter);
-  }); */
-
-  // booking system
+  };
+  
   const [Appointment, SetAppointment] = useState([]);
   const bookings = useSelector((state) => state.Appointment.BookList);
- 
-  useEffect(() => {
-    dispatch(fetchApp());
-
-  },[dispatch] )
-  useEffect(()=>{
-    // use for getting data empty array so problems face re-rendering  using if solve re-rendering 
+    const loading = useSelector(( state)=> state.Appointment.loading);console.log(bookings)
+    const error = useSelector((state)=> state.Appointment.error)
+useEffect(() => {
+   
     if (bookings.length === 0) {
       dispatch(bookstatus(userid));
-    } else{  SetAppointment(bookings)} ;
+    } else {
+      SetAppointment(bookings);
+    }
   }, [dispatch, userid, bookings]);
-  const handleBooking = async (appointment, userinfo) => {
-    const appointmentInfo = { appointment, userinfo };
-    dispatch(bookAppointment(appointmentInfo));
-  };
 
   if (loading) {
     return (
@@ -87,10 +63,9 @@ const Appointment = ({ name }) => {
   }
   return (
     <div className="">
-      {flitterData.length > 0 ? (
+      {Appointment.length > 0 ? (
         <div>
-          
-          {flitterData.map((data, index) => (
+          {Appointment.map((data, index) => (
             <div
               className="card lg:card-side shadow-lg bg-base-200  mx-20 my-5 lg:mx-96  flex justify-center items-center  "
               key={index}
@@ -111,11 +86,18 @@ const Appointment = ({ name }) => {
                     <MdLocationCity />
                     {data.city} {data.district} {data.state}
                   </p>
-               <p className="flex items-center gap-1 tex-lg" datedata={data.end_time} id="countdown-display">
-                                 {" "}
-                                 <CgTime className="sm:text-2xl text-lg" /> <span className="font-bold text-error"> Day Left: {getdata(data.end_time)}         </span>
-                                 
-                                 </p>
+                  <p
+                    className="flex items-center gap-1 tex-lg"
+                    datedata={data.end_time}
+                    id="countdown-display"
+                  >
+                    {" "}
+                    <CgTime className="sm:text-2xl text-lg" />{" "}
+                    <span className="font-bold text-error">
+                      {" "}
+                      Day Left: {getdata(data.end_time)}{" "}
+                    </span>
+                  </p>
 
                   <div className="card-actions justify-center">
                     <button
@@ -132,7 +114,7 @@ const Appointment = ({ name }) => {
               </div>
             </div>
           ))}
-        </div>  
+        </div>
       ) : (
         <div role="alert" className=" alert alert-error alert-soft">
           <span>No Appointment available in your location </span>
@@ -142,4 +124,4 @@ const Appointment = ({ name }) => {
   );
 };
 
-export default memo(Appointment);
+export default BookedAppointment

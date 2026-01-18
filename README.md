@@ -16,7 +16,7 @@ The project follows a **client–server architecture** using the MERN stack.
 * Redux / Context API (if used)
 * Axios
 * HTML5, CSS3, JavaScript (ES6+)
-* Tailwind CSS / Bootstrap (if applicable)
+* Tailwind CSS 
 
 ### Backend (Server)
 
@@ -31,28 +31,89 @@ The project follows a **client–server architecture** using the MERN stack.
 ## 📂 Project Structure
 
 ```
-mali-dekho/
-│
-├── client/                 # Frontend (React)
-│   ├── public/
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       ├── services/
-│       ├── utils/
-│       └── App.js
-│
-├── server/                 # Backend (Node + Express)
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   └── server.js
-│
-├── .env
-├── package.json
-└── README.md
+|-- .github
+    |-- workflows
+        |-- main.yml
+|-- README.md
+|-- client
+    |-- .gitignore
+    |-- README.md
+    |-- eslint.config.js
+    |-- index.html
+    |-- package-lock.json
+    |-- package.json
+    |-- public
+    |-- src
+        |-- API
+            |-- api.jsx
+        |-- App.jsx
+        |-- Features
+            |-- AppointmentSlice.jsx
+            |-- CustomerAPI.jsx
+            |-- ItemsSlice.jsx
+            |-- SupplierAPI.jsx
+            |-- authSlice.jsx
+        |-- Routes
+            |-- Main.jsx
+            |-- Supplier
+                |-- CreateServices.jsx
+                |-- ServiceManage.jsx
+                |-- SupplierDes.jsx
+            |-- auth
+                |-- Login.jsx
+                |-- sigup.jsx
+            |-- customer
+                |-- BookApp.jsx
+                |-- Profile.jsx
+                |-- ViewAppointment.jsx
+        |-- assets
+            |-- 20943930.jpg
+            |-- 5124556.jpg
+        |-- component
+            |-- CustomerComponent
+                |-- Appointment.jsx
+                |-- BookedAppointment.jsx
+                |-- CustomerHome.jsx
+                |-- CustomerNavigation.jsx
+            |-- Home.jsx
+            |-- SupplierComponent
+                |-- BookedAppointment.jsx
+                |-- BtnCreateApp.jsx
+                |-- SupplierNavigation.jsx
+                |-- listingAppo.jsx
+            |-- btnlogout.jsx
+            |-- themeController.jsx
+        |-- index.css
+        |-- main.jsx
+        |-- store
+            |-- store.jsx
+    |-- vercel.json
+    |-- vite.config.js
+|-- package.json
+|-- server
+    |-- .env
+    |-- .gitignore
+    |-- Controller
+        |-- AuthController.js
+        |-- CustomerControler.js
+        |-- supplierController.js
+    |-- Middleware
+        |-- SupplierVarification.js
+        |-- Validation.js
+    |-- Modules
+        |-- Appointment.js
+        |-- BookApp.js
+        |-- User.js
+        |-- db.js
+    |-- Routes
+        |-- BookingRoutes.js
+        |-- CustomerRoutes.js
+        |-- SupplierRoutes.js
+        |-- UserAuth.js
+    |-- index.js
+    |-- package-lock.json
+    |-- package.json
+
 ```
 
 ---
@@ -62,20 +123,16 @@ mali-dekho/
 ### User
 
 * User registration & login
-* Browse available malies
+* Find Mali in there location 
 * Book a mali for gardening services
 * View booking history
 
 ### Mali (Gardener)
 
 * Mali registration & login
-* Profile management
-* Accept or reject booking requests
-
-### Admin (optional)
-
-* Manage users and malies
-* Monitor bookings
+* Create Service
+* Show Booked Booking and Contact to user
+* Change Status Cancel, Pending, Reject
 
 ---
 
@@ -92,7 +149,7 @@ mali-dekho/
 ### Prerequisites
 
 * Node.js (v16+ recommended)
-* MongoDB (local or Atlas)
+* MongoDB (Atlas)
 * Git
 
 ---
@@ -100,8 +157,8 @@ mali-dekho/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/mali-dekho.git
-cd mali-dekho
+git clone https://github.com/Sujalsharma777/Malii-dekhoo.git
+cd Malii-dekhoo
 ```
 
 ---
@@ -113,15 +170,6 @@ cd server
 npm install
 ```
 
-Create a `.env` file in the `server` folder:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-```
-
-Run the server:
 
 ```bash
 npm run dev
@@ -158,15 +206,6 @@ npm start
 
 ---
 
-## 🧪 Future Enhancements
-
-* Online payment integration
-* Real-time booking updates using Socket.io
-* Ratings & reviews
-* Location-based mali search
-* Admin dashboard analytics
-
----
 
 ## 🤝 Contribution
 

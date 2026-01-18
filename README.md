@@ -7,6 +7,9 @@ The platform connects users with verified malies, allowing easy discovery, booki
 The project follows a **client–server architecture** using the MERN stack.
 
 ---
+## 🚀 Live Preview
+
+**malii-dekhoo.vercel.app**
 
 ## 🚀 Tech Stack
 
